@@ -28,6 +28,7 @@ body {
 
 header {
   grid-area: header;
+  background-color: rgba(255, 255, 255, 0.1);
   border: 1.5px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   padding: 7px 20px;
@@ -115,9 +116,76 @@ i.fa-search {
 
 nav {
   grid-area: nav;
-  border: 1px solid white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 20px;
+}
+
+nav h1 {
+  margin-top: 10px;
+  margin-bottom: 35px;
+  font-size: 25px;
+  color: white;
+  display: flex;
+}
+
+nav h1 i {
+  font-size: 35px;
+  margin-right: 10px;
+}
+
+.nav-item {
+  padding: 15px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  transition: background-color 0.15s;
+}
+
+.nav-item:hover::before {
+  content: "";
+  width: 0; 
+  height: 0; 
+  border-top: 6px solid transparent; 
+  border-bottom: 6px solid transparent; 
+  border-right: 6px solid rgba(0, 0, 0, 0.8);
+  position: absolute;
+  left: 102.5%
+}
+
+.nav-item:hover::after {
+  content: attr(data-tooltip);
+  font-size: 14px;
+  white-space: nowrap;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 8px;
+  border-radius: 8px;
+  position: absolute;
+  left: 105%;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-item:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-item i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.nav-item p {
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 main {
@@ -131,14 +199,6 @@ article {
   border: 1px solid white;
   border-radius: 10px;
   padding: 20px;
-}
-
-h1 {
-  
-}
-
-p {
-
 }
 
 section {
@@ -164,7 +224,7 @@ footer {
   padding: 20px;
 }
 
-@media screen and (max-width: 1010px) {
+@media screen and (min-width: 765.01px) and (max-width: 1010px) {
   body {
     grid-template-columns: 1fr;
     grid-template-areas: 
@@ -173,12 +233,48 @@ footer {
       "main"
       "footer";
   }
+
+  .nav-items {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .nav-item:hover::before {
+    content: none;
+  }
+
+  .nav-item:hover::after {
+    content: none;
+  }
 }
 
 @media screen and (max-width: 765px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "header"
+      "nav"
+      "main"
+      "footer";
+  }
+
   header {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  nav h1 {
+    margin-bottom: 20px;
+  }
+
+    .nav-item:hover::before {
+    content: none;
+  }
+
+  .nav-item:hover::after {
+    content: none;
   }
 
   .searchbox {
