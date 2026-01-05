@@ -2,14 +2,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-style: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background-color: lightblue;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-image: linear-gradient(135deg, rgb(102, 126, 234) 0%, rgb(118, 75, 162) 100%);
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
   padding: 20px;
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 280px 1fr;
   grid-template-areas: 
     "nav header"
     "nav main"
@@ -19,9 +28,89 @@ body {
 
 header {
   grid-area: header;
-  border: 1px solid white;
-  border-radius: 10px;
-  padding: 20px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 7px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.searchbox {
+  background-color: rgba(255, 255, 255, 0.2);
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  height: 40px;
+  min-width: 400px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.search-input {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: none;
+  margin-left: 12px;
+  margin-right: 20px;
+  font-size: 14px;
+  opacity: 0.7;
+  flex: 1;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgb(255, 255, 255);
+
+}
+
+i.fa-search {
+  margin-left: 20px;
+  color: white;
+}
+
+.account {
+  flex-shrink: 0.2;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 15px;
+  padding: 8px 20px;
+  border-radius: 50px;
+}
+
+.account:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.account-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 25px;
+  border: 2px solid white;
+}
+
+.account-info {
+  flex: 1;
+}
+
+.account-name {
+  color: white;
+  font-weight: 600;
+}
+
+.account-description {
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  opacity: 0.8;
 }
 
 nav {
@@ -87,6 +176,15 @@ footer {
 }
 
 @media screen and (max-width: 765px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .searchbox {
+    flex: 1;
+  }
+
   section {
     grid-template-columns: 1fr;
   }
