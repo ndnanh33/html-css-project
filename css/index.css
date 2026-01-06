@@ -156,7 +156,8 @@ nav h1 i {
   border-bottom: 6px solid transparent;
   border-right: 6px solid rgba(0, 0, 0, 0.8);
   position: absolute;
-  left: 102.5%
+  left: 102.5%;
+  z-index: 100;
 }
 
 .nav-item:hover::after {
@@ -168,6 +169,7 @@ nav h1 i {
   border-radius: 8px;
   position: absolute;
   left: 105%;
+  z-index: 100;
 }
 
 .nav-item:hover {
@@ -297,6 +299,7 @@ section {
   padding: 10px 16px;
   background-color: rgba(255, 255, 255, 0.2);
   transition: transform 0.3s, background-color 0.3s;
+  position: relative;
 }
 
 .content-btn:hover {
@@ -304,6 +307,32 @@ section {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
+.content-btn:hover::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(0, 0, 0, 0.8);
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.content-btn:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 6px 8px;
+  border-radius: 5px;
+  z-index: 100;
+}
 
 footer {
   grid-area: footer;
